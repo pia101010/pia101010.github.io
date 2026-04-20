@@ -159,6 +159,14 @@
     }
     .rsvp-input:focus { border-color: #8B7340; }
     .rsvp-input::placeholder { color: #B8A070; font-style: italic; }
+    .rsvp-textarea {
+      width: 100%; padding: 12px 16px; resize: vertical; min-height: 90px;
+      background: #F0E8D4; border: 0.5px solid #C9A84C; border-radius: 2px;
+      font-family: 'Cormorant Garamond', serif; font-size: 16px; color: #3A2E1A;
+      outline: none; transition: border-color 0.2s; line-height: 1.5;
+    }
+    .rsvp-textarea:focus { border-color: #8B7340; }
+    .rsvp-textarea::placeholder { color: #B8A070; font-style: italic; }
     .rsvp-counter {
       display: flex; align-items: center; justify-content: center; gap: 20px; margin: 8px 0;
     }
@@ -200,7 +208,7 @@
     <a href="#asistencia">Asistencia</a>
   </nav>
 
-  <!--INICIO-->
+  <!-- INICIO -->
   <section id="inicio">
     <div class="card">
       <div class="ornament-top">
@@ -210,11 +218,11 @@
         <div class="ornament-diamond"></div>
         <div class="ornament-line right"></div>
       </div>
-      <p class="prelude">Nos gustaría que nos acompañárais a celebrar nuestra boda</p>
+      <p class="prelude">Nos gustaría que nos acompañarais a celebrar nuestra boda</p>
       <div class="names">
-        María Medina 
+        María Medina
         <span class="ampersand">&amp;</span>
-        Jesús Blanco 
+        Jesús Blanco
       </div>
       <div class="divider">
         <div class="divider-line"></div>
@@ -247,11 +255,29 @@
 
   <!-- LOCALIZACIÓN -->
   <section id="localizacion">
-    <div class="placeholder-card" style="max-width:600px;padding:40px 40px 44px;">
-      <div class="placeholder-title" style="margin-bottom:8px;">Localización</div>
-      <p class="placeholder-text" style="margin-bottom:24px;">Real Club Astur de Regatas<br>Calle Camín de la Fontica, 7 · Gijón, Asturias</p>
-      <div style="border:0.5px solid #C9A84C;border-radius:2px;overflow:hidden;line-height:0;">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11567.77672409122!2d-5.664828780948369!3d43.54520544662665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd367c6f1389da65%3A0x5e2c0f25bb973bb0!2sRestaurante%20Real%20Club%20Astur%20de%20Regatas!5e0!3m2!1ses!2ses!4v1774022447882!5m2!1ses!2ses" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div style="width:100%;max-width:600px;display:flex;flex-direction:column;gap:20px;">
+      <div class="placeholder-card" style="padding:40px 40px 44px;">
+        <div class="placeholder-title" style="margin-bottom:8px;">Localización</div>
+        <p class="placeholder-text" style="margin-bottom:24px;">Real Club Astur de Regatas<br>Calle Camín de la Fontica, 7 · Gijón, Asturias</p>
+        <div style="border:0.5px solid #C9A84C;border-radius:2px;overflow:hidden;line-height:0;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11567.77672409122!2d-5.664828780948369!3d43.54520544662665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd367c6f1389da65%3A0x5e2c0f25bb973bb0!2sRestaurante%20Real%20Club%20Astur%20de%20Regatas!5e0!3m2!1ses!2ses!4v1774022447882!5m2!1ses!2ses" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <!-- DRESS CODE -->
+      <div class="placeholder-card" style="padding:28px 40px;">
+        <div class="placeholder-title" style="font-size:15px;letter-spacing:0.2em;margin-bottom:20px;">Dress Code</div>
+        <div style="display:flex;justify-content:center;align-items:flex-start;gap:48px;flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#8B7340;margin-bottom:8px;">Señoras</p>
+            <p style="font-size:16px;font-style:italic;color:#3A2E1A;">Cocktail</p>
+          </div>
+          <div style="width:0.5px;height:40px;background:#C9A84C;opacity:0.4;"></div>
+          <div style="text-align:center;">
+            <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#8B7340;margin-bottom:8px;">Caballeros</p>
+            <p style="font-size:16px;font-style:italic;color:#3A2E1A;">Americana sin corbata</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -280,6 +306,10 @@
             <button class="counter-btn" onclick="changeCount(1)">+</button>
           </div>
         </div>
+        <div class="rsvp-field">
+          <label class="rsvp-label">Detalles (alergias, intolerancias u otros comentarios)</label>
+          <textarea id="conf-detalles" class="rsvp-textarea" placeholder="Ej: alergia al marisco, intolerancia al gluten..."></textarea>
+        </div>
         <button class="rsvp-btn" id="btn-confirmar" onclick="confirmarAsistencia()">Confirmar asistencia</button>
         <div id="msg-confirmar" class="rsvp-msg"></div>
       </div>
@@ -295,7 +325,6 @@
     </div>
   </section>
 
-  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
@@ -328,6 +357,7 @@
 
     async function confirmarAsistencia() {
       const nombre = document.getElementById('conf-nombre').value.trim();
+      const detalles = document.getElementById('conf-detalles').value.trim();
       const msg = document.getElementById('msg-confirmar');
       const btn = document.getElementById('btn-confirmar');
 
@@ -351,11 +381,13 @@
           nombre,
           nombre_lower: nombre.toLowerCase(),
           asistentes,
+          detalles: detalles || '',
           fecha: new Date().toISOString()
         });
         msg.textContent = `¡Gracias, ${nombre}! Hemos confirmado tu asistencia para ${asistentes} persona${asistentes > 1 ? 's' : ''}.`;
         msg.className = 'rsvp-msg success';
         document.getElementById('conf-nombre').value = '';
+        document.getElementById('conf-detalles').value = '';
         asistentes = 1;
         document.getElementById('count-display').textContent = '1';
       } catch (e) {
@@ -396,7 +428,6 @@
       btn.disabled = false; btn.textContent = 'Cancelar asistencia';
     }
 
-    // Nav scroll activo
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('nav a');
     const observer = new IntersectionObserver(entries => {
